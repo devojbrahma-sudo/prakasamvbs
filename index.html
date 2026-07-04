@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Telugu:ital@0;1&family=Yatra+One&family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0A1F44;
+    --royal:      #1A3A7C;
+    --blue:       #1E5CC8;
+    --sky:        #3B82F6;
+    --light-blue: #60A5FA;
+    --pale:       #DBEAFE;
+    --white:      #FFFFFF;
+    --off-white:  #F0F6FF;
+    --grey-light: #E8EFF9;
+    --grey-mid:   #94A3B8;
+    --text-dark:  #0F172A;
+    --text-mid:   #334155;
+    --text-soft:  #64748B;
+    --accent:     #F59E0B;
+    --accent2:    #06B6D4;
+    --shadow-b:   rgba(30,92,200,0.18);
+    --shadow-n:   rgba(10,31,68,0.12);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width:7px; }
+  ::-webkit-scrollbar-track { background:#E8EFF9; }
+  ::-webkit-scrollbar-thumb { background:var(--sky); border-radius:4px; }
+
+  /* ── PARTICLES ── */
+  #particles { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle {
+    position:absolute; width:3px; height:3px;
+    background:var(--sky); border-radius:50%; opacity:0;
+    animation:floatUp var(--dur) ease-in infinite;
+    animation-delay:var(--delay); left:var(--x);
+  }
+  @keyframes floatUp {
+    0%   { opacity:0; transform:translateY(100vh) scale(0.5); }
+    20%  { opacity:0.35; }
+    80%  { opacity:0.15; }
+    100% { opacity:0; transform:translateY(-10vh) scale(1.4); }
+  }
+
+  /* ── TICKER ── */
+  .ticker-bar {
+    background: linear-gradient(90deg, var(--navy), var(--royal), var(--navy));
+    padding:8px 0; overflow:hidden;
+    border-bottom:2px solid var(--sky);
+    position:relative; z-index:100;
+  }
+  .ticker-content {
+    display:inline-block; white-space:nowrap;
+    animation:ticker 35s linear infinite;
+    color:var(--pale); font-size:13px; letter-spacing:0.8px;
+    font-family:'Inter',sans-serif;
+  }
+  .ticker-content span { margin:0 40px; }
+  .ticker-content span::before { content:'◆ '; color:var(--light-blue); font-size:10px; }
+  @keyframes ticker { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
+
+  /* ── HEADER ── */
+  header {
+    position:relative;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--royal) 55%, #1B4FA0 100%);
+    border-bottom:3px solid var(--sky);
+    z-index:50; overflow:hidden;
+  }
+  header::before {
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 50% 80% at 5% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 95% 50%, rgba(96,165,250,0.08) 0%, transparent 70%),
+      repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(255,255,255,0.015) 30px,rgba(255,255,255,0.015) 31px);
+  }
+  header::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, transparent, var(--sky), var(--light-blue), var(--accent2), var(--sky), transparent);
+    animation:shimmer 4s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .header-top {
+    display:flex; align-items:center; justify-content:center;
+    gap:28px; padding:28px 40px 20px;
+    position:relative; z-index:1;
+  }
+  .logo-emblem {
+    width:96px; height:96px; border-radius:50%;
+    border:2px solid rgba(255,255,255,0.25);
+    display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle, rgba(255,255,255,0.12), rgba(10,31,68,0.6));
+    font-size:38px; flex-shrink:0;
+    box-shadow:0 0 0 4px rgba(96,165,250,0.2), 0 8px 32px rgba(0,0,0,0.3);
+    animation:pulse-glow 3.5s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%,100%{box-shadow:0 0 0 4px rgba(96,165,250,0.2),0 8px 32px rgba(0,0,0,0.3)}
+    50%{box-shadow:0 0 0 8px rgba(96,165,250,0.15),0 8px 48px rgba(30,92,200,0.4)}
+  }
+  .header-text { text-align:center; }
+  .org-name-te {
+    font-family:'Tiro Telugu',serif;
+    font-size:clamp(22px,4vw,40px);
+    color:#FFFFFF;
+    text-shadow:0 2px 16px rgba(0,0,0,0.4);
+    line-height:1.3;
+    animation:fadeDown 1s ease both;
+  }
+  .org-name-en {
+    font-family:'Cinzel Decorative',cursive;
+    font-size:clamp(9px,1.6vw,14px);
+    color:var(--light-blue);
+    letter-spacing:3px; margin-top:5px;
+    animation:fadeDown 1s 0.2s ease both; opacity:0; animation-fill-mode:forwards;
+  }
+  .org-sub {
+    font-family:'Tiro Telugu',serif;
+    font-size:clamp(11px,1.4vw,13px);
+    color:rgba(255,255,255,0.65);
+    margin-top:6px;
+    animation:fadeDown 1s 0.4s ease both; opacity:0; animation-fill-mode:forwards;
+  }
+  @keyframes fadeDown {
+    from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)}
+  }
+
+  /* ── NAV ── */
+  nav {
+    background:#FFFFFF;
+    border-top:1px solid var(--pale);
+    border-bottom:2px solid var(--pale);
+    position:sticky; top:0; z-index:99;
+    box-shadow:0 2px 16px var(--shadow-n);
+  }
+  .nav-inner {
+    display:flex; align-items:center; justify-content:center;
+    flex-wrap:wrap; max-width:1200px; margin:0 auto;
+  }
+  nav a {
+    color:var(--text-mid); text-decoration:none;
+    padding:15px 18px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px; font-weight:500;
+    position:relative;
+    transition:color 0.25s, background 0.25s;
+    white-space:nowrap;
+  }
+  nav a::after {
+    content:''; position:absolute; bottom:0; left:50%; right:50%;
+    height:2.5px; background:var(--blue);
+    transition:left 0.3s, right 0.3s;
+    border-radius:2px 2px 0 0;
+  }
+  nav a:hover { color:var(--blue); background:var(--off-white); }
+  nav a:hover::after { left:8%; right:8%; }
+  nav a.admin-btn {
+    background:linear-gradient(135deg, var(--blue), var(--royal));
+    color:#FFFFFF; border-radius:5px;
+    margin:8px 10px; font-weight:600;
+    font-size:12.5px; padding:8px 18px;
+    box-shadow:0 2px 10px var(--shadow-b);
+  }
+  nav a.admin-btn:hover { filter:brightness(1.12); background:linear-gradient(135deg,var(--sky),var(--blue)); }
+  nav a.admin-btn::after { display:none; }
+
+  /* ── HERO ── */
+  .hero {
+    position:relative; min-height:520px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--royal) 50%, #163272 100%);
+  }
+  .hero-bg-art {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 55% 70% at 15% 50%, rgba(59,130,246,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 60% at 85% 50%, rgba(6,182,212,0.08) 0%, transparent 65%),
+      repeating-linear-gradient(0deg,transparent,transparent 50px,rgba(255,255,255,0.02) 50px,rgba(255,255,255,0.02) 51px),
+      repeating-linear-gradient(90deg,transparent,transparent 50px,rgba(255,255,255,0.015) 50px,rgba(255,255,255,0.015) 51px);
+  }
+  .hero-ring {
+    position:absolute; border-radius:50%;
+    border:1px solid rgba(96,165,250,0.12);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+  }
+  .hero-ring:nth-child(1){width:540px;height:540px;animation:spin 40s linear infinite;}
+  .hero-ring:nth-child(2){width:380px;height:380px;animation:spin 25s linear infinite reverse;border-color:rgba(6,182,212,0.1);}
+  .hero-ring:nth-child(3){width:220px;height:220px;animation:spin 15s linear infinite;border-color:rgba(255,255,255,0.06);}
+  @keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+  .hero-content { position:relative; z-index:2; text-align:center; padding:70px 20px; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid rgba(96,165,250,0.4);
+    background:rgba(59,130,246,0.12);
+    color:var(--light-blue);
+    font-size:11px; letter-spacing:3px; padding:7px 22px; margin-bottom:22px;
+    font-family:'Cinzel Decorative',cursive; border-radius:30px;
+    animation:fadeIn 1s 0.5s both;
+    backdrop-filter:blur(4px);
+  }
+  .hero-title {
+    font-family:'Yatra One',cursive;
+    font-size:clamp(26px,5vw,54px);
+    color:#FFFFFF;
+    text-shadow:0 4px 24px rgba(0,0,0,0.4);
+    line-height:1.3; animation:fadeIn 1s 0.7s both;
+  }
+  .hero-sub {
+    font-family:'Tiro Telugu',serif;
+    font-size:clamp(15px,2.2vw,20px);
+    color:rgba(255,255,255,0.8);
+    margin:18px 0 28px; animation:fadeIn 1s 0.9s both;
+  }
+  .hero-divider {
+    width:180px; height:2px; margin:22px auto;
+    background:linear-gradient(90deg,transparent,var(--sky),var(--accent2),var(--sky),transparent);
+    animation:fadeIn 1s 1.1s both;
+  }
+  .hero-desc {
+    font-family:'Tiro Telugu',serif;
+    font-size:15px; color:rgba(255,255,255,0.65);
+    max-width:600px; margin:0 auto; line-height:1.9;
+    animation:fadeIn 1s 1.2s both;
+  }
+  @keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ── SECTION COMMON ── */
+  section { position:relative; z-index:1; }
+  .section-wrap { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+  .section-title { text-align:center; padding:64px 20px 10px; }
+  .section-title h2 {
+    font-family:'Yatra One',cursive;
+    font-size:clamp(22px,3.5vw,34px);
+    color:var(--navy);
+  }
+  .section-title p { color:var(--text-soft); font-size:13px; margin-top:6px; }
+
+  .ornament {
+    display:flex; align-items:center; justify-content:center;
+    gap:14px; margin:14px auto 40px;
+  }
+  .ornament-line {
+    flex:1; max-width:110px; height:1.5px;
+    background:linear-gradient(90deg,transparent,var(--sky));
+  }
+  .ornament-line.rev{background:linear-gradient(90deg,var(--sky),transparent);}
+  .ornament-diamond{width:9px;height:9px;background:var(--sky);transform:rotate(45deg);}
+
+  /* ── UPDATES ── */
+  .updates-section { padding:0 24px 64px; }
+  .updates-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:22px; max-width:1200px; margin:0 auto;
+  }
+  .update-card {
+    background:#FFFFFF;
+    border:1px solid var(--grey-light);
+    border-radius:10px; padding:24px;
+    position:relative; overflow:hidden;
+    transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow:0 2px 12px var(--shadow-n);
+  }
+  .update-card::before {
+    content:''; position:absolute; top:0; left:0;
+    width:4px; height:100%;
+    background:linear-gradient(180deg,var(--blue),var(--accent2));
+    border-radius:4px 0 0 4px;
+  }
+  .update-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 12px 36px var(--shadow-b);
+    border-color:var(--sky);
+  }
+  .update-type {
+    font-size:10px; letter-spacing:2.5px; color:var(--blue);
+    font-family:'Inter',sans-serif; text-transform:uppercase;
+    font-weight:600; margin-bottom:8px;
+  }
+  .update-title {
+    font-family:'Tiro Telugu',serif;
+    font-size:17px; color:var(--navy); margin-bottom:8px; line-height:1.5;
+  }
+  .update-desc {
+    font-family:'Tiro Telugu',serif;
+    font-size:14px; color:var(--text-mid);
+    line-height:1.75;
+  }
+  .update-date {
+    font-size:11px; color:var(--text-soft);
+    margin-top:12px; font-family:'Inter',sans-serif;
+  }
+  .update-badge {
+    position:absolute; top:14px; right:14px;
+    background:linear-gradient(135deg,var(--blue),var(--sky));
+    color:white; font-size:9px; font-family:'Inter',sans-serif;
+    padding:3px 9px; border-radius:20px;
+    letter-spacing:1px; text-transform:uppercase; font-weight:700;
+    animation:blink 2.5s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
+
+  /* ── EVENTS ── */
+  .events-section { padding:0 24px 64px; background:var(--off-white); }
+  .events-list { max-width:900px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+  .event-item {
+    display:flex; gap:20px; align-items:flex-start;
+    background:#FFFFFF;
+    border:1px solid var(--grey-light);
+    border-radius:10px; padding:20px;
+    transition:border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow:0 1px 8px var(--shadow-n);
+  }
+  .event-item:hover {
+    border-color:var(--sky);
+    transform:translateX(6px);
+    box-shadow:0 4px 20px var(--shadow-b);
+  }
+  .event-date-box {
+    min-width:60px;
+    background:linear-gradient(135deg,var(--navy),var(--royal));
+    border-radius:8px; text-align:center; padding:10px 6px;
+    box-shadow:0 2px 10px rgba(10,31,68,0.2);
+  }
+  .event-day { font-size:26px; color:#FFFFFF; font-weight:700; line-height:1; }
+  .event-month { font-size:10px; color:var(--light-blue); text-transform:uppercase; letter-spacing:1px; font-family:'Inter',sans-serif; margin-top:2px; }
+  .event-details h4 {
+    font-family:'Tiro Telugu',serif;
+    color:var(--navy); font-size:17px; margin-bottom:4px;
+  }
+  .event-details p {
+    font-family:'Tiro Telugu',serif;
+    font-size:13px; color:var(--text-soft); line-height:1.7;
+  }
+  .event-tag {
+    display:inline-block; margin-top:8px;
+    font-size:10px; font-family:'Inter',sans-serif; letter-spacing:1.5px;
+    color:var(--blue); border:1px solid rgba(30,92,200,0.3);
+    padding:2px 10px; border-radius:20px; text-transform:uppercase; font-weight:600;
+    background:var(--pale);
+  }
+
+  /* ── GALLERY ── */
+  .gallery-section { padding:0 24px 64px; }
+  .gallery-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:16px; max-width:1200px; margin:0 auto;
+  }
+  .gallery-item {
+    position:relative; overflow:hidden;
+    border:2px solid var(--grey-light);
+    border-radius:10px; aspect-ratio:4/3;
+    background:var(--pale); cursor:pointer;
+    transition:border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow:0 2px 10px var(--shadow-n);
+  }
+  .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; display:block; }
+  .gallery-item:hover { border-color:var(--sky); transform:scale(1.02); box-shadow:0 8px 30px var(--shadow-b); }
+  .gallery-item:hover img { transform:scale(1.08); }
+  .gallery-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(10,31,68,0.75) 0%, transparent 55%);
+    display:flex; align-items:flex-end; padding:16px;
+    opacity:0; transition:opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+  .gallery-caption { font-family:'Tiro Telugu',serif; color:#FFFFFF; font-size:14px; }
+  .gallery-placeholder {
+    width:100%; height:100%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; color:var(--sky);
+  }
+  .gallery-placeholder span { font-size:42px; }
+  .gallery-placeholder p { font-size:12px; font-family:'Inter',sans-serif; color:var(--text-soft); }
+
+  /* ── VIDEOS ── */
+  .video-section { padding:0 24px 64px; background:var(--off-white); }
+  .video-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:22px; max-width:1200px; margin:0 auto;
+  }
+  .video-card {
+    background:#FFFFFF;
+    border:1px solid var(--grey-light);
+    border-radius:10px; overflow:hidden;
+    transition:transform 0.3s, box-shadow 0.3s;
+    box-shadow:0 2px 12px var(--shadow-n);
+  }
+  .video-card:hover { transform:translateY(-5px); box-shadow:0 14px 40px var(--shadow-b); }
+  .video-thumb { position:relative; aspect-ratio:16/9; background:var(--pale); overflow:hidden; }
+  .video-thumb iframe { width:100%; height:100%; border:none; }
+  .video-thumb-placeholder {
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--pale),#C7D9F8);
+    cursor:pointer;
+  }
+  .video-thumb-placeholder::after {
+    content:'▶'; font-size:42px; color:var(--blue);
+    filter:drop-shadow(0 2px 8px rgba(30,92,200,0.4));
+  }
+  .video-info { padding:16px; border-top:1px solid var(--grey-light); }
+  .video-title { font-family:'Tiro Telugu',serif; color:var(--navy); font-size:15px; margin-bottom:6px; }
+  .video-meta { font-size:12px; color:var(--text-soft); font-family:'Inter',sans-serif; }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding:70px 40px;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
+  }
+  .about-inner {
+    max-width:960px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .about-text h3 {
+    font-family:'Yatra One',cursive;
+    color:#FFFFFF; font-size:28px; margin-bottom:18px;
+  }
+  .about-text p {
+    font-family:'Tiro Telugu',serif;
+    font-size:15px; line-height:1.9;
+    color:rgba(255,255,255,0.78); margin-bottom:12px;
+  }
+  .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .stat-card {
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:10px; padding:22px; text-align:center;
+    backdrop-filter:blur(4px);
+    transition:background 0.3s, transform 0.3s;
+  }
+  .stat-card:hover { background:rgba(255,255,255,0.14); transform:translateY(-3px); }
+  .stat-number {
+    font-family:'Inter',sans-serif; font-weight:700;
+    font-size:34px; color:#FFFFFF;
+    text-shadow:0 0 20px rgba(96,165,250,0.5);
+  }
+  .stat-label { font-family:'Tiro Telugu',serif; font-size:12px; color:rgba(255,255,255,0.6); margin-top:6px; }
+
+  /* ── CONTACT ── */
+  .contact-section { padding:70px 40px; background:#FFFFFF; }
+  .contact-inner {
+    max-width:900px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+  }
+  .contact-block h3 {
+    font-family:'Yatra One',cursive;
+    color:var(--navy); font-size:24px; margin-bottom:22px;
+  }
+  .contact-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:18px; }
+  .contact-icon {
+    width:40px; height:40px; border-radius:8px; flex-shrink:0;
+    background:var(--pale); display:flex; align-items:center; justify-content:center; font-size:18px;
+  }
+  .contact-text { font-family:'Tiro Telugu',serif; font-size:14px; color:var(--text-mid); line-height:1.8; }
+  .social-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+  .social-btn {
+    background:var(--pale); border:1px solid var(--pale);
+    color:var(--blue); text-decoration:none;
+    padding:9px 18px; border-radius:6px;
+    font-size:12px; font-family:'Inter',sans-serif; font-weight:500;
+    transition:background 0.25s, border-color 0.25s, transform 0.2s;
+  }
+  .social-btn:hover { background:var(--blue); color:#FFFFFF; border-color:var(--blue); transform:translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:linear-gradient(180deg, var(--navy), #060F22);
+    border-top:2px solid rgba(96,165,250,0.2);
+    text-align:center; padding:44px 20px;
+  }
+  .footer-logo { font-size:34px; margin-bottom:12px; }
+  .footer-brand {
+    color:#FFFFFF; font-size:17px;
+    font-family:'Yatra One',cursive; margin-bottom:8px;
+  }
+  footer p { font-family:'Tiro Telugu',serif; font-size:13px; color:rgba(255,255,255,0.4); line-height:1.9; }
+
+  /* ── ADMIN PANEL ── */
+  #admin-overlay {
+    display:none; position:fixed; inset:0;
+    background:rgba(10,31,68,0.82);
+    z-index:1000; backdrop-filter:blur(8px);
+    align-items:flex-start; justify-content:center;
+    padding:20px; overflow-y:auto;
+  }
+  #admin-overlay.open { display:flex; }
+  .admin-panel {
+    background:#FFFFFF;
+    border:1.5px solid var(--pale);
+    border-radius:12px;
+    width:100%; max-width:860px;
+    box-shadow:0 20px 60px rgba(10,31,68,0.35);
+    margin:auto;
+  }
+  .admin-header {
+    background:linear-gradient(90deg, var(--navy), var(--royal));
+    padding:20px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-radius:10px 10px 0 0;
+  }
+  .admin-header h2 { font-family:'Inter',sans-serif; font-weight:700; color:#FFFFFF; font-size:17px; }
+  .admin-close {
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
+    color:#FFFFFF; width:34px; height:34px;
+    border-radius:50%; cursor:pointer; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    transition:background 0.25s;
+  }
+  .admin-close:hover { background:rgba(255,255,255,0.25); }
+  .admin-body { padding:28px; }
+  .admin-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+  .admin-tab {
+    padding:8px 18px; border-radius:6px;
+    border:1.5px solid var(--grey-light);
+    background:#FFFFFF; color:var(--text-mid);
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:500;
+    cursor:pointer; transition:all 0.25s;
+  }
+  .admin-tab.active { background:var(--navy); color:#FFFFFF; border-color:var(--navy); }
+  .admin-tab:hover:not(.active) { border-color:var(--sky); color:var(--blue); }
+  .admin-pane { display:none; }
+  .admin-pane.active { display:block; }
+
+  .form-group { margin-bottom:18px; }
+  .form-group label {
+    display:block; color:var(--navy);
+    font-family:'Inter',sans-serif; font-size:11.5px;
+    font-weight:600; letter-spacing:0.8px; margin-bottom:6px; text-transform:uppercase;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width:100%;
+    background:#F8FAFC; border:1.5px solid var(--grey-light);
+    color:var(--text-dark);
+    padding:10px 14px; border-radius:7px;
+    font-family:'Tiro Telugu',serif; font-size:14px;
+    outline:none; transition:border-color 0.25s, box-shadow 0.25s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color:var(--sky); box-shadow:0 0 0 3px rgba(59,130,246,0.12); }
+  .form-group textarea { resize:vertical; min-height:80px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .btn-add {
+    background:linear-gradient(135deg, var(--blue), var(--navy));
+    color:#FFFFFF; border:none; padding:12px 28px;
+    border-radius:7px; cursor:pointer;
+    font-family:'Inter',sans-serif; font-size:14px;
+    font-weight:600; letter-spacing:0.5px;
+    transition:filter 0.25s, transform 0.2s;
+    box-shadow:0 2px 12px var(--shadow-b);
+  }
+  .btn-add:hover { filter:brightness(1.1); transform:translateY(-1px); }
+  .btn-danger {
+    background:#FEE2E2; color:#DC2626; border:1px solid #FECACA;
+    padding:5px 12px; border-radius:5px; cursor:pointer;
+    font-size:11px; font-family:'Inter',sans-serif; font-weight:600;
+    transition:background 0.2s;
+  }
+  .btn-danger:hover { background:#FCA5A5; }
+
+  .admin-list { margin-top:24px; }
+  .admin-list h4 {
+    color:var(--navy); font-family:'Inter',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:12px;
+    padding-bottom:8px; border-bottom:2px solid var(--pale);
+  }
+  .admin-item {
+    display:flex; align-items:flex-start;
+    justify-content:space-between; gap:12px;
+    padding:12px 14px; margin-bottom:8px;
+    background:#F8FAFC; border:1px solid var(--grey-light);
+    border-radius:7px; transition:border-color 0.2s;
+  }
+  .admin-item:hover { border-color:var(--sky); }
+  .admin-item-title { color:var(--text-dark); font-family:'Inter',sans-serif; font-size:13px; font-weight:600; }
+  .admin-item-sub { color:var(--text-soft); font-family:'Inter',sans-serif; font-size:11px; margin-top:2px; }
+
+  .login-screen { text-align:center; padding:40px 20px; }
+  .login-screen h3 { font-family:'Yatra One',cursive; color:var(--navy); font-size:24px; margin-bottom:8px; }
+  .login-screen p { color:var(--text-soft); font-size:14px; margin-bottom:28px; }
+  .login-box { max-width:340px; margin:0 auto; text-align:left; }
+  #login-error { color:#DC2626; font-size:12px; text-align:center; margin-top:8px; min-height:18px; font-family:'Inter',sans-serif; }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    display:none; position:fixed; inset:0;
+    background:rgba(10,31,68,0.93); z-index:2000;
+    align-items:center; justify-content:center;
+    cursor:zoom-out; backdrop-filter:blur(6px);
+  }
+  #lightbox.open { display:flex; }
+  #lightbox img { max-width:90vw; max-height:88vh; object-fit:contain; border:2px solid rgba(96,165,250,0.4); border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.5); }
+  #lightbox .lb-close {
+    position:absolute; top:18px; right:22px;
+    color:rgba(255,255,255,0.8); font-size:32px; cursor:pointer;
+    background:rgba(255,255,255,0.1); border:none; border-radius:50%;
+    width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s;
+  }
+  #lightbox .lb-close:hover { background:rgba(255,255,255,0.2); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    .about-inner,.contact-inner{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .header-top{flex-direction:column;gap:12px;padding:20px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    nav a{padding:11px 12px;font-size:12.5px;}
+    .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
+    .video-grid{grid-template-columns:1fr;}
+    .about-section{padding:50px 20px;}
+    .contact-section{padding:50px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-content" id="ticker-text">
+    <span>🔱 జయో విశ్వకర్మ</span>
+    <span>ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం కు స్వాగతం</span>
+    <span>🙏 సంఘ సభ్యులందరికీ నమస్కారములు</span>
+    <span>📢 తాజా వార్తలు మరియు కార్యక్రమాల కోసం పేజీని అనుసరించండి</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="logo-emblem">🔱</div>
+    <div class="header-text">
+      <div class="org-name-te">ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం</div>
+      <div class="org-name-en">PRAKASAM DISTRICT VISWABRAHMANA SANGHAM</div>
+      <div class="org-sub">ఆంధ్రప్రదేశ్ విశ్వకర్మ సమాఖ్య — స్థాపన: 1985</div>
+    </div>
+    <div class="logo-emblem">⚒️</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home">🏠 హోమ్</a>
+    <a href="#updates">📢 అప్‌డేట్‌లు</a>
+    <a href="#events">📅 కార్యక్రమాలు</a>
+    <a href="#gallery">🖼️ ఫోటోలు</a>
+    <a href="#videos">🎥 వీడియోలు</a>
+    <a href="#about">ℹ️ మా గురించి</a>
+    <a href="#contact">📞 సంప్రదించండి</a>
+    <a href="#" class="admin-btn" onclick="openAdmin();return false;">⚙️ Admin</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-art"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Since 1985 · Ongole, AP</div>
+    <div class="hero-title">విశ్వకర్మ జయంతి 2025<br>కు స్వాగతం</div>
+    <div class="hero-sub">సంఘటిత శక్తి — సామాజిక అభివృద్ధి — సాంస్కృతిక గౌరవం</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">విశ్వబ్రాహ్మణ సమాజ అభివృద్ధికి అంకితమైన మన సంఘం — విద్య, సంస్కృతి మరియు సంక్షేమ కార్యక్రమాల ద్వారా సమాజాన్ని ముందుకు నడిపిస్తున్నాం.</p>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates" class="updates-section">
+  <div class="section-title">
+    <h2>📢 తాజా అప్‌డేట్‌లు</h2>
+    <p>Recent Announcements & News</p>
+  </div>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+  <div class="updates-grid" id="updates-grid"></div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="events-section">
+  <div class="section-title">
+    <h2>📅 రాబోయే కార్యక్రమాలు</h2>
+    <p>Upcoming Events & Programs</p>
+  </div>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+  <div class="events-list" id="events-list"></div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="section-title">
+    <h2>🖼️ ఫోటో గ్యాలరీ</h2>
+    <p>Photo Gallery — Our Memories</p>
+  </div>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" class="video-section">
+  <div class="section-title">
+    <h2>🎥 వీడియో గ్యాలరీ</h2>
+    <p>Video Gallery — Watch Our Programs</p>
+  </div>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+  <div class="video-grid" id="video-grid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-text">
+      <h3>మా సంఘం గురించి</h3>
+      <p>ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం 1985లో స్థాపించబడింది. విశ్వకర్మ సమాజ అభ్యున్నతి కోసం నిరంతరం కృషి చేస్తున్న మన సంఘం జిల్లా అంతటా వేలాది సభ్యులను కలిగి ఉంది.</p>
+      <p>విద్యా సహాయం, వివాహ సహాయం, వైద్య సహాయం మరియు ఉపాధి అవకాశాల కల్పన ద్వారా సమాజ అభివృద్ధికి పాటుపడుతున్నాం.</p>
+      <p>ప్రతి సంవత్సరం విశ్వకర్మ జయంతి, దీపావళి మరియు ఇతర ముఖ్యమైన పండుగలను ఘనంగా జరుపుకుంటాం.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">5000+</div><div class="stat-label">సభ్యులు · Members</div></div>
+      <div class="stat-card"><div class="stat-number">39</div><div class="stat-label">సంవత్సరాలు · Years</div></div>
+      <div class="stat-card"><div class="stat-number">120+</div><div class="stat-label">కార్యక్రమాలు · Programs</div></div>
+      <div class="stat-card"><div class="stat-number">52</div><div class="stat-label">మండలాలు · Mandals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-title">
+    <h2>📞 సంప్రదించండి</h2>
+    <p>Contact Us</p>
+  </div>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line rev"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-block">
+      <h3>కార్యాలయ వివరాలు</h3>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">విశ్వబ్రాహ్మణ సంఘం భవనం,<br>ఒంగోలు, ప్రకాశం జిల్లా,<br>ఆంధ్రప్రదేశ్ — 523 001</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">+91 98765 43210<br>+91 91234 56789</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">prakashamvbs@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-text">సోమ–శని: ఉ. 9:00 — సా. 6:00<br>ఆదివారం: ఉ. 10:00 — మ. 2:00</div>
+      </div>
+    </div>
+    <div class="contact-block">
+      <h3>సోషల్ మీడియా</h3>
+      <p style="font-family:'Tiro Telugu',serif;font-size:14px;color:var(--text-soft);margin-bottom:18px;line-height:1.9">
+        మన సంఘం యొక్క తాజా వార్తలు మరియు కార్యక్రమాల సమాచారం కోసం సోషల్ మీడియాలో అనుసరించండి.
+      </p>
+      <div class="social-links">
+        <a class="social-btn" href="#">📘 Facebook</a>
+        <a class="social-btn" href="#">▶️ YouTube</a>
+        <a class="social-btn" href="#">📸 Instagram</a>
+        <a class="social-btn" href="#">💬 WhatsApp</a>
+        <a class="social-btn" href="#">🐦 Twitter/X</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🔱</div>
+  <div class="footer-brand">ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం</div>
+  <p>Prakasam District Viswabrahmana Sangham — Ongole, Andhra Pradesh</p>
+  <p style="margin-top:8px">© 2025 All Rights Reserved | జయో విశ్వకర్మ 🙏</p>
+  <p style="margin-top:12px;font-size:11px;opacity:0.3">Admin panel password: vbs@2025</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-overlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>⚙️ Admin — No-Code Update Panel</h2>
+      <button class="admin-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="admin-body" id="admin-body">
+      <div id="login-screen" class="login-screen">
+        <h3>🔐 లాగిన్ అవ్వండి</h3>
+        <p>Admin panel కు access చేయడానికి password enter చేయండి</p>
+        <div class="login-box">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="admin-pass" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
+          </div>
+          <button class="btn-add" onclick="doLogin()" style="width:100%">లాగిన్ →</button>
+          <div id="login-error"></div>
+          <p style="margin-top:14px;font-size:11px;color:var(--text-soft);text-align:center;font-family:'Inter',sans-serif">Default password: vbs@2025</p>
+        </div>
+      </div>
+
+      <div id="admin-dashboard" style="display:none">
+        <div class="admin-tabs">
+          <button class="admin-tab active" onclick="switchTab('tab-updates',this)">📢 అప్‌డేట్‌లు</button>
+          <button class="admin-tab" onclick="switchTab('tab-events',this)">📅 కార్యక్రమాలు</button>
+          <button class="admin-tab" onclick="switchTab('tab-photos',this)">🖼️ ఫోటోలు</button>
+          <button class="admin-tab" onclick="switchTab('tab-videos',this)">🎥 వీడియోలు</button>
+          <button class="admin-tab" onclick="switchTab('tab-ticker',this)">📡 టికర్</button>
+          <button class="admin-tab" onclick="doLogout()" style="margin-left:auto;background:#FEE2E2;color:#DC2626;border-color:#FECACA">🚪 Logout</button>
+        </div>
+
+        <!-- UPDATES -->
+        <div class="admin-pane active" id="tab-updates">
+          <div class="form-row">
+            <div class="form-group"><label>శీర్షిక (Title)</label><input type="text" id="u-title" placeholder="అప్‌డేట్ శీర్షిక"></div>
+            <div class="form-group"><label>రకం (Type)</label>
+              <select id="u-type">
+                <option value="ప్రకటన">ప్రకటన (Announcement)</option>
+                <option value="వార్త">వార్త (News)</option>
+                <option value="అత్యవసరం">అత్యవసరం (Urgent)</option>
+                <option value="శుభాకాంక్షలు">శుభాకాంక్షలు (Greetings)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label>వివరణ (Description)</label><textarea id="u-desc" placeholder="వివరణ ఇక్కడ టైప్ చేయండి..."></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label>తేదీ (Date)</label><input type="date" id="u-date"></div>
+            <div class="form-group"><label>New Badge?</label><select id="u-new"><option value="yes">అవును (Yes)</option><option value="no">కాదు (No)</option></select></div>
+          </div>
+          <button class="btn-add" onclick="addUpdate()">+ అప్‌డేట్ జోడించు</button>
+          <div class="admin-list"><h4>ప్రస్తుత అప్‌డేట్‌లు</h4><div id="admin-updates-list"></div></div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="admin-pane" id="tab-events">
+          <div class="form-row">
+            <div class="form-group"><label>కార్యక్రమం పేరు</label><input type="text" id="e-title" placeholder="కార్యక్రమం పేరు"></div>
+            <div class="form-group"><label>తేదీ (Date)</label><input type="date" id="e-date"></div>
+          </div>
+          <div class="form-group"><label>వివరాలు (Details)</label><textarea id="e-desc" placeholder="సమయం, స్థలం, వివరాలు..."></textarea></div>
+          <div class="form-group"><label>ట్యాగ్ (Tag)</label><input type="text" id="e-tag" placeholder="Cultural / Religious / Meeting"></div>
+          <button class="btn-add" onclick="addEvent()">+ కార్యక్రమం జోడించు</button>
+          <div class="admin-list"><h4>ప్రస్తుత కార్యక్రమాలు</h4><div id="admin-events-list"></div></div>
+        </div>
+
+        <!-- PHOTOS -->
+        <div class="admin-pane" id="tab-photos">
+          <div class="form-group"><label>ఫోటో URL</label><input type="text" id="p-url" placeholder="https://..."></div>
+          <div class="form-group"><label>లేదా ఫైల్ ఎంచుకోండి</label><input type="file" id="p-file" accept="image/*" onchange="previewPhoto(this)" style="background:#F8FAFC;border:1.5px dashed #BFDBFE;padding:10px;border-radius:7px;color:var(--text-mid)"></div>
+          <div class="form-group"><label>వివరణ (Caption)</label><input type="text" id="p-caption" placeholder="ఫోటో వివరణ"></div>
+          <div id="photo-preview" style="margin:12px 0;display:none"><img id="p-preview-img" style="max-height:120px;border:2px solid var(--sky);border-radius:7px" src="" alt=""></div>
+          <button class="btn-add" onclick="addPhoto()">+ ఫోటో జోడించు</button>
+          <div class="admin-list"><h4>ప్రస్తుత ఫోటోలు</h4><div id="admin-photos-list"></div></div>
+        </div>
+
+        <!-- VIDEOS -->
+        <div class="admin-pane" id="tab-videos">
+          <div class="form-group"><label>YouTube Video URL</label><input type="text" id="v-url" placeholder="https://youtube.com/watch?v=XXXXXXXXXXX"></div>
+          <div class="form-group"><label>వీడియో శీర్షిక (Title)</label><input type="text" id="v-title" placeholder="వీడియో శీర్షిక"></div>
+          <div class="form-row">
+            <div class="form-group"><label>తేదీ (Date)</label><input type="date" id="v-date"></div>
+            <div class="form-group"><label>వ్యవధి (Duration)</label><input type="text" id="v-dur" placeholder="e.g. 12:34"></div>
+          </div>
+          <button class="btn-add" onclick="addVideo()">+ వీడియో జోడించు</button>
+          <div class="admin-list"><h4>ప్రస్తుత వీడియోలు</h4><div id="admin-videos-list"></div></div>
+        </div>
+
+        <!-- TICKER -->
+        <div class="admin-pane" id="tab-ticker">
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:var(--text-soft);margin-bottom:16px">పేజీ పైన కనిపించే స్క్రోలింగ్ టికర్‌లో text మార్చండి (comma తో వేరు చేయండి)</p>
+          <div class="form-group"><label>Ticker Messages</label><textarea id="ticker-input" rows="4" placeholder="message1, message2, message3..."></textarea></div>
+          <button class="btn-add" onclick="updateTicker()">🔄 Ticker అప్‌డేట్ చేయండి</button>
+          <p id="ticker-saved" style="color:var(--blue);font-size:13px;margin-top:10px;font-family:'Inter',sans-serif;min-height:20px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<25;i++){
+    const p=document.createElement('div');p.className='particle';
+    p.style.cssText=`--x:${Math.random()*100}%;--dur:${8+Math.random()*12}s;--delay:${Math.random()*12}s`;
+    c.appendChild(p);
+  }
+})();
+
+const STORE_KEY='pvbs_data';
+function loadData(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||getDefaultData();}catch(e){return getDefaultData();}}
+function saveData(d){localStorage.setItem(STORE_KEY,JSON.stringify(d));}
+function getDefaultData(){
+  return{
+    updates:[
+      {id:1,title:'విశ్వకర్మ జయంతి 2025 వేడుకలు',type:'ప్రకటన',desc:'ఈ సంవత్సరం విశ్వకర్మ జయంతి అక్టోబర్ 17న ఒంగోలులో అత్యంత వైభవంగా జరుపుకోనున్నాం. అందరూ తప్పనిసరిగా హాజరు కావాలని కోరుతున్నాం.',date:'2025-09-10',isNew:true},
+      {id:2,title:'విద్యార్థి స్కాలర్‌షిప్ దరఖాస్తులు',type:'ప్రకటన',desc:'2024-25 విద్యా సంవత్సరానికి స్కాలర్‌షిప్‌ల కోసం దరఖాస్తులు స్వీకరిస్తున్నాం. అర్హులైన విద్యార్థులు సెప్టెంబర్ 30 వరకు దరఖాస్తు చేసుకోవచ్చు.',date:'2025-09-05',isNew:true},
+      {id:3,title:'సంఘ సాధారణ సభ',type:'వార్త',desc:'గత నెల జరిగిన సాధారణ సభలో 350కి పైగా సభ్యులు పాల్గొన్నారు. సభలో తీర్మానించిన విషయాలు సభ్యులకు వివరించబడ్డాయి.',date:'2025-08-20',isNew:false},
+    ],
+    events:[
+      {id:1,title:'విశ్వకర్మ జయంతి మహోత్సవం',date:'2025-10-17',desc:'ఒంగోలు జిల్లా కేంద్రంలో గ్రాండ్ వేడుక. సాంస్కృతిక కార్యక్రమాలు, ప్రసాద వితరణ.',tag:'Religious'},
+      {id:2,title:'వార్షిక సాధారణ సభ',date:'2025-11-15',desc:'సంఘం వార్షిక సభ — 2025 నివేదిక, 2026 ప్రణాళికలు.',tag:'Meeting'},
+      {id:3,title:'వివాహ సహాయ కార్యక్రమం',date:'2025-12-01',desc:'ఆర్థికంగా వెనుకబడిన కుటుంబాల పెళ్ళికూతుళ్ళకు సహాయం.',tag:'Welfare'},
+    ],
+    photos:[
+      {id:1,url:'',caption:'విశ్వకర్మ జయంతి 2024'},
+      {id:2,url:'',caption:'వార్షిక సాధారణ సభ 2024'},
+      {id:3,url:'',caption:'స్కాలర్‌షిప్ పంపిణీ'},
+      {id:4,url:'',caption:'సాంస్కృతిక కార్యక్రమం'},
+      {id:5,url:'',caption:'సంఘ భవన నిర్మాణం'},
+      {id:6,url:'',caption:'యువ నాయకత్వ శిబిరం'},
+    ],
+    videos:[
+      {id:1,ytId:'',title:'విశ్వకర్మ జయంతి 2024 హైలైట్స్',date:'2024-10-17',dur:'15:22'},
+      {id:2,ytId:'',title:'వార్షిక సభ 2024 — ముఖ్య ప్రసంగాలు',date:'2024-11-10',dur:'45:10'},
+      {id:3,ytId:'',title:'సాంస్కృతిక కార్యక్రమాలు 2024',date:'2024-09-05',dur:'28:45'},
+    ],
+    ticker:'🔱 జయో విశ్వకర్మ, ప్రకాశం జిల్లా విశ్వబ్రాహ్మణ సంఘం కు స్వాగతం, 🙏 సంఘ సభ్యులందరికీ నమస్కారములు, 📢 తాజా వార్తలు కోసం పేజీని అనుసరించండి'
+  };
+}
+
+function renderAll(){const d=loadData();renderUpdates(d.updates);renderEvents(d.events);renderGallery(d.photos);renderVideos(d.videos);renderTicker(d.ticker);}
+
+function renderUpdates(updates){
+  const g=document.getElementById('updates-grid');
+  g.innerHTML=updates.length?updates.map(u=>`
+    <div class="update-card">
+      ${u.isNew?'<div class="update-badge">NEW</div>':''}
+      <div class="update-type">${u.type}</div>
+      <div class="update-title">${u.title}</div>
+      <div class="update-desc">${u.desc}</div>
+      <div class="update-date">📅 ${u.date}</div>
+    </div>`).join(''):'<p style="color:var(--text-soft);font-family:sans-serif;text-align:center;padding:40px;grid-column:1/-1">No updates yet. Add from Admin panel.</p>';
+}
+
+function renderEvents(events){
+  const g=document.getElementById('events-list');
+  g.innerHTML=events.length?events.map(e=>{
+    const d=new Date(e.date);const day=d.getDate();const mon=d.toLocaleString('te',{month:'short'});
+    return`<div class="event-item">
+      <div class="event-date-box"><div class="event-day">${day}</div><div class="event-month">${mon}</div></div>
+      <div class="event-details">
+        <h4>${e.title}</h4><p>${e.desc}</p>
+        ${e.tag?`<span class="event-tag">${e.tag}</span>`:''}
+      </div>
+    </div>`;
+  }).join(''):'<p style="color:var(--text-soft);font-family:sans-serif;text-align:center;padding:40px">No events yet.</p>';
+}
+
+function renderGallery(photos){
+  const g=document.getElementById('gallery-grid');
+  g.innerHTML=photos.map(p=>`
+    <div class="gallery-item" onclick="openLightbox('${p.url||''}','${p.caption}')">
+      ${p.url?`<img src="${p.url}" alt="${p.caption}" loading="lazy">`:`<div class="gallery-placeholder"><span>🖼️</span><p>${p.caption||'Photo'}</p></div>`}
+      <div class="gallery-overlay"><div class="gallery-caption">📷 ${p.caption}</div></div>
+    </div>`).join('');
+}
+
+function renderVideos(videos){
+  const g=document.getElementById('video-grid');
+  g.innerHTML=videos.map(v=>`
+    <div class="video-card">
+      <div class="video-thumb">
+        ${v.ytId?`<iframe src="https://www.youtube.com/embed/${v.ytId}" allowfullscreen loading="lazy"></iframe>`:`<div class="video-thumb-placeholder" onclick="alert('Add a YouTube video ID in Admin panel')" title="Add video from Admin"></div>`}
+      </div>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta">📅 ${v.date} &nbsp;⏱️ ${v.dur||'--'}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderTicker(text){
+  const t=document.getElementById('ticker-text');
+  const msgs=text.split(',').map(m=>m.trim()).filter(Boolean);
+  t.innerHTML=msgs.map(m=>`<span>${m}</span>`).join('');
+}
+
+function openLightbox(url,cap){
+  if(!url){alert('ఫోటో URL అందుబాటులో లేదు. Admin లో URL జోడించండి.');return;}
+  document.getElementById('lb-img').src=url;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+
+const ADMIN_PASS='vbs@2025';
+let adminLoggedIn=false;
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('open');
+  if(!adminLoggedIn){document.getElementById('login-screen').style.display='block';document.getElementById('admin-dashboard').style.display='none';}
+}
+function closeAdmin(){document.getElementById('admin-overlay').classList.remove('open');}
+document.getElementById('admin-overlay').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
+
+function doLogin(){
+  const p=document.getElementById('admin-pass').value;
+  if(p===ADMIN_PASS){
+    adminLoggedIn=true;
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('admin-dashboard').style.display='block';
+    refreshAdminLists();
+    document.getElementById('ticker-input').value=loadData().ticker;
+  }else{
+    document.getElementById('login-error').textContent='❌ Wrong password. Try: vbs@2025';
+    document.getElementById('admin-pass').value='';
+  }
+}
+function doLogout(){
+  adminLoggedIn=false;
+  document.getElementById('login-screen').style.display='block';
+  document.getElementById('admin-dashboard').style.display='none';
+  document.getElementById('admin-pass').value='';
+  document.getElementById('login-error').textContent='';
+}
+
+function switchTab(id,btn){
+  document.querySelectorAll('.admin-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function addUpdate(){
+  const title=document.getElementById('u-title').value.trim();
+  const type=document.getElementById('u-type').value;
+  const desc=document.getElementById('u-desc').value.trim();
+  const date=document.getElementById('u-date').value;
+  const isNew=document.getElementById('u-new').value==='yes';
+  if(!title||!desc){alert('శీర్షిక మరియు వివరణ తప్పనిసరి');return;}
+  const d=loadData();
+  d.updates.unshift({id:Date.now(),title,type,desc,date:date||new Date().toISOString().split('T')[0],isNew});
+  saveData(d);renderUpdates(d.updates);refreshAdminLists();
+  ['u-title','u-desc','u-date'].forEach(id=>document.getElementById(id).value='');
+  alert('✅ అప్‌డేట్ జోడించబడింది!');
+}
+
+function addEvent(){
+  const title=document.getElementById('e-title').value.trim();
+  const date=document.getElementById('e-date').value;
+  const desc=document.getElementById('e-desc').value.trim();
+  const tag=document.getElementById('e-tag').value.trim();
+  if(!title||!date){alert('పేరు మరియు తేదీ తప్పనిసరి');return;}
+  const d=loadData();
+  d.events.push({id:Date.now(),title,date,desc,tag});
+  d.events.sort((a,b)=>new Date(a.date)-new Date(b.date));
+  saveData(d);renderEvents(d.events);refreshAdminLists();
+  ['e-title','e-date','e-desc','e-tag'].forEach(id=>document.getElementById(id).value='');
+  alert('✅ కార్యక్రమం జోడించబడింది!');
+}
+
+function previewPhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    document.getElementById('p-preview-img').src=e.target.result;
+    document.getElementById('photo-preview').style.display='block';
+    document.getElementById('p-url').value=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function addPhoto(){
+  const url=document.getElementById('p-url').value.trim();
+  const caption=document.getElementById('p-caption').value.trim();
+  if(!caption){alert('వివరణ తప్పనిసరి');return;}
+  const d=loadData();
+  d.photos.unshift({id:Date.now(),url,caption});
+  saveData(d);renderGallery(d.photos);refreshAdminLists();
+  document.getElementById('p-url').value='';
+  document.getElementById('p-caption').value='';
+  document.getElementById('p-file').value='';
+  document.getElementById('photo-preview').style.display='none';
+  alert('✅ ఫోటో జోడించబడింది!');
+}
+
+function addVideo(){
+  let url=document.getElementById('v-url').value.trim();
+  const title=document.getElementById('v-title').value.trim();
+  const date=document.getElementById('v-date').value;
+  const dur=document.getElementById('v-dur').value.trim();
+  if(!title){alert('శీర్షిక తప్పనిసరి');return;}
+  let ytId='';
+  const match=url.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_\-]{11})/);
+  if(match)ytId=match[1];else ytId=url;
+  const d=loadData();
+  d.videos.unshift({id:Date.now(),ytId,title,date:date||new Date().toISOString().split('T')[0],dur});
+  saveData(d);renderVideos(d.videos);refreshAdminLists();
+  ['v-url','v-title','v-date','v-dur'].forEach(id=>document.getElementById(id).value='');
+  alert('✅ వీడియో జోడించబడింది!');
+}
+
+function updateTicker(){
+  const text=document.getElementById('ticker-input').value.trim();
+  if(!text)return;
+  const d=loadData();d.ticker=text;saveData(d);renderTicker(text);
+  const s=document.getElementById('ticker-saved');
+  s.textContent='✅ Ticker అప్‌డేట్ చేయబడింది!';
+  setTimeout(()=>s.textContent='',3000);
+}
+
+function delItem(type,id){
+  if(!confirm('Delete చేయాలా?'))return;
+  const d=loadData();
+  d[type]=d[type].filter(i=>i.id!==id);
+  saveData(d);
+  if(type==='updates')renderUpdates(d.updates);
+  if(type==='events')renderEvents(d.events);
+  if(type==='photos')renderGallery(d.photos);
+  if(type==='videos')renderVideos(d.videos);
+  refreshAdminLists();
+}
+
+function refreshAdminLists(){
+  const d=loadData();
+  const mkList=(items,type)=>items.map(i=>`
+    <div class="admin-item">
+      <div class="admin-item-text">
+        <div class="admin-item-title">${i.title||i.caption||''}</div>
+        <div class="admin-item-sub">${i.date||i.ytId||''}</div>
+      </div>
+      <button class="btn-danger" onclick="delItem('${type}',${i.id})">🗑 Delete</button>
+    </div>`).join('')||'<p style="color:var(--text-soft);font-size:12px;font-family:sans-serif;padding:10px 0">లేదు</p>';
+  document.getElementById('admin-updates-list').innerHTML=mkList(d.updates,'updates');
+  document.getElementById('admin-events-list').innerHTML=mkList(d.events,'events');
+  document.getElementById('admin-photos-list').innerHTML=mkList(d.photos,'photos');
+  document.getElementById('admin-videos-list').innerHTML=mkList(d.videos,'videos');
+}
+
+renderAll();
+</script>
+</body>
+</html>
